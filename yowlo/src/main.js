@@ -8,6 +8,11 @@ import { createVuetify } from 'vuetify'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
 
+import './assets/sass/style.scss'
+
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap'
+
 const app = createApp(App)
 const vuetify = createVuetify({
     components,

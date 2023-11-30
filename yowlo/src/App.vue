@@ -1,6 +1,5 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <template>
@@ -73,7 +72,7 @@ import HelloWorld from './components/HelloWorld.vue'
       </v-responsive>
     </v-app-bar>
 
-    <v-main><!--  --></v-main>
+    <v-main> <RouterView /></v-main>
 
     <v-navigation-drawer location="right">
       <v-list>
