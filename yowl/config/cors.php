@@ -15,11 +15,15 @@ return [
     |
     */
 
-    'paths' => ['*'],
+    'paths' => [
+        '*',
+        'api/*',
+        'login',
+    ],
 
-    'allowed_methods' => ['*'],
+    'allowed_methods' => ['http://localhost:8001'],
 
-    'allowed_origins' => [env('FRONTEND_URL', 'http://localhost:3000')],
+    'allowed_origins' => [env('FRONTEND_URL', 'http://localhost:8001')],
 
     'allowed_origins_patterns' => [],
 

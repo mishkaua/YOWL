@@ -1,18 +1,39 @@
 <script setup>
-import WelcomeItem from './WelcomeItem.vue'
+import { ref, onMounted } from 'vue'
+import axios from 'axios'; 
+
+const user = ref(); 
+onMounted(async () => {
+  const data = await axios.get('/api/user'); 
+  user.value = data; 
+  console.log(user.value);
+})
+/* import { createHydrationRenderer } from 'vue'; */
+
+/* import WelcomeItem from './WelcomeItem.vue'
 import DocumentationIcon from './icons/IconDocumentation.vue'
 import ToolingIcon from './icons/IconTooling.vue'
 import EcosystemIcon from './icons/IconEcosystem.vue'
 import CommunityIcon from './icons/IconCommunity.vue'
-import SupportIcon from './icons/IconSupport.vue'
+import SupportIcon from './icons/IconSupport.vue' */
+
+/* export default {
+  data() {
+    return;
+  }
+}, 
+created() {
+  fetch('http:localhost/')
+} */
 </script>
 
 <template>
-  <WelcomeItem>
+  <h1>user: {{ user }} </h1>
+<!--   <WelcomeItem>
     <template #icon>
       <DocumentationIcon />
     </template>
-    <template #heading>Documentation</template>
+    <template #heading>Page appelée Landing</template>
 
     Vue’s
     <a href="https://vuejs.org/" target="_blank" rel="noopener">official documentation</a>
@@ -84,5 +105,5 @@ import SupportIcon from './icons/IconSupport.vue'
     As an independent project, Vue relies on community backing for its sustainability. You can help
     us by
     <a href="https://vuejs.org/sponsor/" target="_blank" rel="noopener">becoming a sponsor</a>.
-  </WelcomeItem>
+  </WelcomeItem> -->
 </template>
