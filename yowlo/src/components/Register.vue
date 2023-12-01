@@ -4,9 +4,19 @@
         <v-text-field
           v-model="userName"
           :rules="rules"
-          label="Register Page"
+          label="Enter Name"
         ></v-text-field>
-  
+        <v-text-field
+          v-model="email"
+          :rules="rules"
+          label="Enter email address"
+        ></v-text-field>
+        <v-text-field
+          v-model="password"
+          :rules="rules"
+          label="Enter Password"
+        ></v-text-field>
+        
         <v-btn
           :loading="loading"
           type="submit"

@@ -23,9 +23,9 @@
     <div class="d-flex align-center justify-center" style="height: 100vh">
         <v-sheet width="400" class="mx-auto">
             <v-form fast-fail @submit.prevent="login">
-                <v-text-field variant="underlined" v-model="form.email" type=email label="email"></v-text-field>
+                <v-text-field variant="underlined" v-model="form.email" :rules="rules" type=email label="email"></v-text-field>
 
-                <v-text-field variant="underlined" v-model="form.password" type=password label="password"></v-text-field>
+                <v-text-field variant="underlined" v-model="form.password" :rules="rules" type=password label="password"></v-text-field>
                 <!--  <a href="#" class="text-body-2 font-weight-regular">Forgot Password?</a> -->
 
                 <v-btn type="submit" variant="outlined" color="primary" block class="mt-2">Log in</v-btn>
@@ -49,7 +49,7 @@ const form = ref({
     password: '',
 })
 const login = async () => {
-    await axios.post('/api/login', {
+    await axios.post('http://localhost:8000/api/login', {
         email: form.value.email,
         password: form.value.password
     });

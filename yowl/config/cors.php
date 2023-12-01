@@ -21,7 +21,7 @@ return [
         'login',
     ],
 
-    'allowed_methods' => ['http://localhost:8001'],
+    'allowed_methods' => ['*'],
 
     'allowed_origins' => [env('FRONTEND_URL', 'http://localhost:8001')],
 
