@@ -16,6 +16,7 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(User::class)->constrained()->restrictOnDelete();
             $table->foreignIdFor(Post::class)->constrained()->cascadeOnDelete(); //once a post is deleted all comments will be deleted
+            $table->longText('content');
             $table->timestamps();
         });
     }

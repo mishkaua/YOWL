@@ -29,7 +29,17 @@ MySQL
 ---
 
 # GETTING STARTED
-Run a UserSeeder to create 5 fake users bu running the following commande in the terminal: 
+Install Axios in VueJs:
+npm i axios
+
+Install bootstrap in VueJs:
+npm install --save bootstrap
+npm install --save @popperjs/core
+
+Install VueToaster in VueJs:
+npm install vue-toast-notification@^3
+
+3. Run a UserSeeder to create 5 fake users bu running the following commande in the terminal: 
 php artisan db:seed --class=UserSeeder
 
 ## Badges
