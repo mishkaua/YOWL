@@ -58,7 +58,8 @@ methods: {
   async login() {
     try {
       await axios.post('http://127.0.0.1:8000/api/login', this.form);
-      this.$router.push('/');
+      this.$router.push('/login'); /* link to x page */
+      console.log('Logged in successfully');
     } catch (error) {
       console.log('Pas marché pske:', error);
     }
