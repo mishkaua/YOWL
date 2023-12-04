@@ -22,10 +22,12 @@
 <template>
     <div class="d-flex align-center justify-center" style="height: 100vh">
         <v-sheet width="400" class="mx-auto">
-            <v-form fast-fail @submit.prevent="login">
-                <v-text-field variant="underlined" v-model="form.email" :rules="rules" type=email label="email"></v-text-field>
+            <v-form @submit.prevent="login">
+             <!--  <v-text-field variant="underlined" v-model="form.name" type=name label="name"></v-text-field> -->
 
-                <v-text-field variant="underlined" v-model="form.password" :rules="rules" type=password label="password"></v-text-field>
+                <v-text-field variant="underlined" v-model="form.email" type=email label="email"></v-text-field>
+
+                <v-text-field variant="underlined" v-model="form.password" type=password label="password"></v-text-field>
                 <!--  <a href="#" class="text-body-2 font-weight-regular">Forgot Password?</a> -->
 
                 <v-btn type="submit" variant="outlined" color="primary" block class="mt-2">Log in</v-btn>
@@ -37,24 +39,34 @@
         </v-sheet>
     </div>
 </template>
-<script setup>
-import { ref } from 'vue';
+<script>
 import axios from 'axios';
-import { useRouter } from 'vue-router'
 
 
-const router = useRouter();
-const form = ref({
-    email: '',
-    password: '',
-})
-const login = async () => {
-    await axios.post('http://localhost:8000/api/login', {
-        email: form.value.email,
-        password: form.value.password
-    });
-    router.push('/');
-};
+export default {
+  data () {
+    return {
+      form: {
+       /*  name: '', */ 
+        email: '', 
+        password: '', 
+      }
+    };
+  },
+
+methods: {
+  async login() {
+    try {
+      await axios.post('http://127.0.0.1:8000/api/login', this.form);
+      this.$router.push('/login'); /* link to x page */
+      console.log('Logged in successfully');
+    } catch (error) {
+      console.log('Pas marché pske:', error);
+    }
+  }
+},
+/* created(){}, */
+}
 </script>
 
 <!-- <script>
