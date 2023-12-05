@@ -7,3 +7,36 @@ h1 {
 body {
   font-family: 'Avenir';
 }
+
+.light {
+  background-color: #F6E1C3;
+}
+
+.orange {
+  background-color: #E9A178;
+}
+
+.marron {
+  background-color: #A84448;
+}
+
+.dark {
+  background-color: #7A3E65;
+}
+
+#btn-back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: none;
+  z-index: 100;
+}
+
+li {
+  list-style-type: none;
+}
+
+#profileOptions {
+  color: white;
+  font-size: 1.3rem;
+}
