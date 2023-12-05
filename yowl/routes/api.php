@@ -34,7 +34,7 @@ Route::middleware(['auth:sanctum'])->group(function() {
     Route::apiResource('posts', PostController::class);
 });
 
-});
+
 
 Route::get('/users', [UserController::class, 'showUsers']);
 Route::get('/users/{id}', [UserController::class, 'showUser']);
