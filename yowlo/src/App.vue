@@ -4,27 +4,25 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <template>
   <v-app id="inspire">
-    <v-system-bar color="#F6E1C3" height= 157>
+    <v-system-bar color="#F6E1C3" height=157>
       <v-container>
-
-        <v-row justify="center">
-          <v-responsive max-width="156">
-            <v-col cols="auto">
-             <v-text-field bg-color="#E9A178" height="45" min-width="164" color="#E9A178" density="compact" flat hide-details rounded="pill"
-            variant="solo-filled"></v-text-field> 
-            </v-col>
-            
-          </v-responsive>
+        <v-row align-center justify="space-between" max-width="150">
+          <v-spacer></v-spacer>
+          <v-col cols="auto">
+            <v-text-field bg-color="#E9A178" density="compact" 
+              hide-details rounded="pill" variant="solo-filled" placeholder="Search" style="min-width: 300px;"></v-text-field>
+          </v-col>
+          <v-spacer></v-spacer>
           <router-link to="/login">
             <v-col cols="auto">
-              <v-btn height="45" min-width="164" color="#E9A178">
+              <v-btn  height="20" min-width="100" color="#E9A178">
                 LOGIN
               </v-btn>
             </v-col>
           </router-link>
           <v-col cols="auto">
             <router-link to="/register">
-              <v-btn height="45" min-width="164" color="#E9A178">
+              <v-btn height="20" min-width="100" color="#E9A178">
                 REGISTER
               </v-btn>
             </router-link>
@@ -71,13 +69,13 @@ import { RouterLink, RouterView } from 'vue-router'
     </v-navigation-drawer>
 
     <v-footer app height="72">
-     <!--  <v-text-field justify="right" bg-color="grey-lighten-1" class="overflow-hidden" density="compact" flat hide-details rounded="pill"
+      <!--  <v-text-field justify="right" bg-color="grey-lighten-1" class="overflow-hidden" density="compact" flat hide-details rounded="pill"
         variant="solo-filled"></v-text-field> -->
     </v-footer>
   </v-app>
 </template>
 
-<style scoped>
+<!-- <style scoped>
 header {
   line-height: 1.5;
   max-height: 100vh;
@@ -139,4 +137,4 @@ nav a:first-of-type {
     margin-top: 1rem;
   }
 }
-</style>
+</style -->
