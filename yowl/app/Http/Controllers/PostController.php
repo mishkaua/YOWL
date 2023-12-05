@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Http\Resources\PostResource;
 use App\Http\Requests\PostCreateRequest;
 use App\Http\Requests\PostUpdateRequest; 
