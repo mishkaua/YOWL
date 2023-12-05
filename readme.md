@@ -39,8 +39,12 @@ npm install --save @popperjs/core
 Install VueToaster in VueJs:
 npm install vue-toast-notification@^3
 
-3. Run a UserSeeder to create 5 fake users bu running the following commande in the terminal: 
+3. Run a UserSeeder to create fake users, posts and comments bu running the following commande in the terminal: 
 php artisan db:seed --class=UserSeeder
+php artisan db:seed --class=PostSeeder
+php artisan db:seed --class=CommentSeeder
+
+Attention, il y aura des exception messages lors de deux dernières seeder executions.
 
 ## Badges
 

@@ -12,6 +12,7 @@ onMounted(async () => {
 
 <template>
   <main>
-    <router-link to="/adminusers">Admin User Page</router-link>
+    <router-link to="/adminusers">Admin User Page</router-link> |
+    <router-link to="/user/:id">User Profile Page</router-link>
   </main>
 </template>

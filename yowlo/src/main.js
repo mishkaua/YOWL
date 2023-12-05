@@ -16,6 +16,13 @@ import 'bootstrap'
 import ToastPlugin from 'vue-toast-notification'
 import 'vue-toast-notification/dist/theme-bootstrap.css'
 
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { faThumbsUp } from '@fortawesome/free-solid-svg-icons'
+import { faThumbsDown } from '@fortawesome/free-solid-svg-icons'
+import { faArrowUp } from '@fortawesome/free-solid-svg-icons'
+
+
 const app = createApp(App)
 const vuetify = createVuetify({
     components,
@@ -25,5 +32,9 @@ const vuetify = createVuetify({
 app.use(router)
 app.use(vuetify)
 app.use(ToastPlugin)
+
+.component('font-awesome-icon', FontAwesomeIcon)
+library.add(faThumbsUp, faThumbsDown, faArrowUp)
+
 
 app.mount('#app')

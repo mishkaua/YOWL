@@ -25,7 +25,6 @@ class UserController extends Controller
         return response()->json(["message" => "User successfully created."], 201);
     }
 
-    //show a particular user
     public function showUser($id) {
         $user = User::find($id);
         if(!empty($user)) {
@@ -37,17 +36,17 @@ class UserController extends Controller
         }
     }
 
-    //update a user
     public function updateUser(Request $request, $id) {
-        if(User::where('id', $id)->exists) {
+        if(User::where('id', $id)->exists()) {
             $user = User::find($id);
-            $user->name = is_null($request->name) ? $user->name : $user->name;
-            $user->email = is_null($request->email) ? $user->email : $user->email;//need to make sure the new email doesn't already exist
-            $user->password = is_null($request->password) ? $user->password : Hash::make($request->password);
+            $user->is_admin = $request->is_admin ? $request->is_admin : $user->is_admin;
+            $user->name = is_null($request->name) ? $user->name : $request->name;
+            $user->email = is_null($request->email) ? $user->email : $request->email;//need to make sure the new email doesn't already exist
+            //$user->password = is_null($request->password) ? $request->password : Hash::make($request->password);
             $user->save();
                 return response()->json([
                     "message" => "User data is updated."
-                ], 404);
+                ], 200);
         } else {
             return response()->json([
                 "message" => "User not found."
@@ -67,6 +66,21 @@ class UserController extends Controller
             return response()->json([
                 "message" => "User not found."
             ], 404);
+        }
+    }
+
+    public function addAsAdmin(Request $request, $id){
+        if(User::where('id', $id)->exists()){
+            $user = User::find($id);
+            $user->is_admin = 1;
+            $user->save();
+            return response()->json([
+                "message" => "User assigned as an admin."
+            ], 200);
+    } else {
+        return response()->json([
+            "message" => "User not found."
+        ], 404);
         }
     }
 
