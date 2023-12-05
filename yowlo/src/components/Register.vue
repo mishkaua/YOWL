@@ -35,6 +35,8 @@ export default {
     rules: [value => vm.checkApi(value)],
     timeout: null,
     userName: '',
+    email: "",
+    password: ""
   }),
 
   methods: {

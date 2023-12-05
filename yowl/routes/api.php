@@ -41,3 +41,5 @@ Route::get('/users/{id}', [UserController::class, 'showUser']);
 Route::post('/users', [UserController::class, 'addUser']);
 Route::put('/users/{id}', [UserController::class, 'updateUser']);
 Route::delete('/users/{id}', [UserController::class, 'deleteUser']);
+
+Route::get('/posts', [PostController::class, 'showPosts']);

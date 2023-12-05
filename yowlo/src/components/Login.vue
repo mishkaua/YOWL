@@ -25,9 +25,9 @@
             <v-form @submit.prevent="login">
              <!--  <v-text-field variant="underlined" v-model="form.name" type=name label="name"></v-text-field> -->
 
-                <v-text-field variant="underlined" v-model="form.email" type=email label="email"></v-text-field>
+                <v-text-field variant="underlined" v-model="email" type=email label="email"></v-text-field>
 
-                <v-text-field variant="underlined" v-model="form.password" type=password label="password"></v-text-field>
+                <v-text-field variant="underlined" v-model="password" type=password label="password"></v-text-field>
                 <!--  <a href="#" class="text-body-2 font-weight-regular">Forgot Password?</a> -->
 
                 <v-btn type="submit" variant="outlined" color="primary" block class="mt-2">Log in</v-btn>
@@ -46,18 +46,18 @@ import axios from 'axios';
 export default {
   data () {
     return {
-      form: {
+      
        /*  name: '', */ 
         email: '', 
         password: '', 
-      }
+      
     };
   },
 
 methods: {
   async login() {
     try {
-      await axios.post('http://127.0.0.1:8000/api/login', this.form);
+      await axios.post('http://127.0.0.1:8000/api/login', {email: this.email, password: this.password});
       this.$router.push('/login'); /* link to x page */
       console.log('Logged in successfully');
     } catch (error) {

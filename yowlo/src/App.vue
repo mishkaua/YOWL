@@ -4,7 +4,7 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <template>
   <v-app id="inspire">
-    <v-system-bar color="#F6E1C3" height=157>
+    <v-system-bar color="#F6E1C3" height=100>
       <v-container>
         <v-row align-center justify="space-between" max-width="150">
           <v-spacer></v-spacer>

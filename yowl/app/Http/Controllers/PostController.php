@@ -15,6 +15,13 @@ class PostController extends Controller
     /**
      * Display a listing of the resource.
      */
+
+     //display all posts
+    public function showPosts() {
+        $posts = Post::all();
+        return response()->json($posts);
+    }
+
     public function index()
     {
         $posts = Post::with(['author'])->paginate(10);
