@@ -18,6 +18,12 @@ class Post extends Model
             'link',
             'content',
             'user_id',
+            'category'
+    ];
+
+    protected $casts = [
+        'created_at' => 'datetime:Y-m-d',
+        'updated_at' => 'datetime:Y-m-d'
     ];
 
     public function author(): BelongsTo {
@@ -27,5 +33,9 @@ class Post extends Model
     public function comments(): HasMany {
         return $this->hasMany(Comment::class);
 
+    }
+
+    public function category(): BelongsTo {
+        return $this->belongsTo(Category::class, 'category_id');
     }
 }
