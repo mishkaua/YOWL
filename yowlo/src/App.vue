@@ -40,7 +40,7 @@ import { RouterLink, RouterView } from 'vue-router'
         size="28"></v-avatar>
     </v-navigation-drawer> -->
 
-    <v-navigation-drawer width="244">
+    <v-navigation-drawer width="244" color="#F6E1C3">
       <!-- <v-sheet color="grey-lighten-5" height="128" width="100%"></v-sheet> -->
 
       <v-list>
@@ -62,7 +62,7 @@ import { RouterLink, RouterView } from 'vue-router'
     </v-main>
 
 
-    <v-navigation-drawer location="right">
+    <v-navigation-drawer location="right" color="#F6E1C3">
       <v-list>
         <v-list-item v-for="n in 5" :key="n" :title="`Item ${n}`" link></v-list-item>
       </v-list>

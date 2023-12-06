@@ -7,12 +7,15 @@ import BackToTop from '../components/BackToTop.vue'
 </script>
 
 <template>
-  <main>
+  <div class="light">
+   <main>
     <BackToTop />
     <router-link to="/adminusers">Admin User Page</router-link> |
     <router-link to="/user/:id">User Profile Page</router-link>
     <Landing />
     <PostFeedView />
     <RouterView/>
-  </main>
+  </main> 
+  </div>
+  
 </template>
