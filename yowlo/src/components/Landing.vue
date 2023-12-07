@@ -4,11 +4,7 @@ import axios from 'axios';
 
 const user = ref(); 
 onMounted(async () => {
-  const data = await axios.get('http://127.0.0.1:8000/api/user', { 
-    'Content-Type': 'application/json', 
-    'Accept': 'application/json', 
-    'Authorization': '24|eQPKhemUKTyFFWtSKioBjN0LuLShlxKopGsIL1ed54f8f819'
-  }); /* ajouter le header headers: , */
+  const data = await axios.get('http://127.0.0.1:8000/api/user'); /* ajouter le header headers: , */
   user.value = data.data; 
   console.log(user.value);
 })

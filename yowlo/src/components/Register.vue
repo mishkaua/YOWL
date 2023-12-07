@@ -1,66 +1,45 @@
 <template>
-    <v-sheet max-width="300" class="mx-auto">
-      <v-form validate-on="submit lazy" @submit.prevent="submit">
-        <v-text-field
-          v-model="userName"
-          :rules="rules"
-          label="Enter Name"
-        ></v-text-field>
-        <v-text-field
-          v-model="email"
-          :rules="rules"
-          label="Enter email address"
-        ></v-text-field>
-        <v-text-field
-          v-model="password"
-          :rules="rules"
-          label="Enter Password"
-        ></v-text-field>
-        
-        <v-btn
-          :loading="loading"
-          type="submit"
-          block
-          class="mt-2"
-          text="Submit"
-        ></v-btn>
-      </v-form>
-    </v-sheet>
-  </template>
+  <v-sheet max-width="300" class="mx-auto">
+    <v-form validate-on="submit lazy" @submit.prevent="submitNewUser">
+      <v-text-field v-model="name" label="Enter Name"></v-text-field>
+      <v-text-field v-model="email" label="Enter email address"></v-text-field>
+      <v-text-field v-model="password" label="Enter Password"></v-text-field>
+      <v-text-field v-model="password_confirmation" label="Confirm Password"></v-text-field>
+
+      <v-btn :loading="loading" type="submit" block class="mt-2" text="Submit"></v-btn>
+    </v-form>
+  </v-sheet>
+</template>
 
 <script>
+import axios from 'axios';
+
 export default {
-  data: vm => ({
-    loading: false,
-    rules: [value => vm.checkApi(value)],
-    timeout: null,
-    userName: '',
-    email: "",
-    password: ""
-  }),
-
+  data() {
+    return {
+      name: '',
+      email: '',
+      password: '',
+      password_confirmation: '',
+      loading: false,
+    }
+  },
   methods: {
-    async submit (event) {
-      this.loading = true
-
-      const results = await event
-
-      this.loading = false
-
-      alert(JSON.stringify(results, null, 2))
-    },
-    async checkApi (userName) {
-      return new Promise(resolve => {
-        clearTimeout(this.timeout)
-
-        this.timeout = setTimeout(() => {
-          if (!userName) return resolve('Please enter a user name.')
-          if (userName === 'johnleider') return resolve('User name already taken. Please try another one.')
-
-          return resolve(true)
-        }, 1000)
-      })
-    },
+    async submitNewUser() {
+      try {
+        this.loading = true;
+        await axios.post('http://127.0.0.1:8000/api/register', {
+          name: this.name,
+          email: this.email,
+          password: this.password,
+          password_confirmation: this.password_confirmation,
+        });
+        console.log('register ok');
+      } catch (error) {
+        console.log('error not registered', error);
+      }
+      this.loading = false;
+    }
   },
 }
 </script>
