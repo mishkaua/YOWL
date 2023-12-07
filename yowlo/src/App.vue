@@ -1,26 +1,42 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterLink, RouterView, useRouter } from 'vue-router'
+import axios from 'axios';
+
+useRouter();
+/* const response = axios.post('/logout') */
+const router = useRouter();
+const logout = () => {
+  localStorage.removeItem('access_token')
+  axios.post('/logout')
+  .then(response => {
+    console.log('ma requête', response)
+    router.push({path:'/'})
+  })
+  .catch (error => {
+    console.log ('response', error)
+  })
+}
 </script>
 
 <template>
   <v-app id="inspire">
     <v-system-bar color="#F6E1C3" height=100>
       <v-container>
-        <v-row align-center justify="space-between" >
+        <v-row align-center justify="space-between">
           <v-spacer></v-spacer>
           <v-col>
             <router-link to="/">
-              <v-img src="/src/assets/yowlito.png" alt="logo" style ="max-height: 50px;"></v-img>
+              <v-img src="/src/assets/yowlito.png" alt="logo" style="max-height: 50px;"></v-img>
             </router-link>
           </v-col>
           <v-col cols="auto">
-            <v-text-field bg-color="#E9A178" density="compact" 
-              hide-details rounded="pill" variant="solo-filled" placeholder="Search" style="min-width: 300px;"></v-text-field>
+            <v-text-field bg-color="#E9A178" density="compact" hide-details rounded="pill" variant="solo-filled"
+              placeholder="Search" style="min-width: 300px;"></v-text-field>
           </v-col>
           <v-spacer></v-spacer>
           <router-link to="/login">
             <v-col cols="auto">
-              <v-btn  height="20" min-width="100" color="#E9A178">
+              <v-btn height="20" min-width="100" color="#E9A178">
                 LOGIN
               </v-btn>
             </v-col>
@@ -33,19 +49,15 @@ import { RouterLink, RouterView } from 'vue-router'
               </v-btn>
             </router-link>
           </v-col>
+          <v-col cols="auto">
+            <v-btn @click="logout" height="20" min-width="100" color="#E9A178">
+              LOGOUT
+            </v-btn>
+          </v-col>
+          <v-spacer></v-spacer>
         </v-row>
       </v-container>
     </v-system-bar>
-
-    <!-- <v-navigation-drawer color="grey-lighten-3" rail>
-      <v-avatar class="d-block text-center mx-auto mt-4" color="grey-darken-1" size="36"></v-avatar>
-
-      <v-divider class="mx-3 my-5"></v-divider>
-
-      <v-avatar v-for="n in 6" :key="n" class="d-block text-center mx-auto mb-9" color="grey-lighten-1"
-        size="28"></v-avatar>
-    </v-navigation-drawer> -->
-
     <v-navigation-drawer width="244" color="#F6E1C3">
       <!-- <v-sheet color="grey-lighten-5" height="128" width="100%"></v-sheet> -->
 
@@ -73,11 +85,6 @@ import { RouterLink, RouterView } from 'vue-router'
         <v-list-item v-for="n in 5" :key="n" :title="`Item ${n}`" link></v-list-item>
       </v-list>
     </v-navigation-drawer>
-
-    <v-footer app height="72">
-      <!--  <v-text-field justify="right" bg-color="grey-lighten-1" class="overflow-hidden" density="compact" flat hide-details rounded="pill"
-        variant="solo-filled"></v-text-field> -->
-    </v-footer>
   </v-app>
 </template>
 
