@@ -7,6 +7,7 @@ useRouter();
 const router = useRouter();
 const logout = () => {
   localStorage.removeItem('access_token')
+  localStorage.removeItem('id_locally_stored')
   axios.post('/logout')
   .then(response => {
     console.log('ma requête', response)

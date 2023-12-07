@@ -27,7 +27,7 @@ export default {
   data() {
     return {
 
-       name: '',
+      name: '',
       email: '',
       password: '',
 
@@ -38,12 +38,15 @@ export default {
     async login() {
       try {
         const response = await axios.post('http://127.0.0.1:8000/api/login', { email: this.email, password: this.password });
-
+        /* Ici on set les infos que l'on veut garder dans le localStorage,
+         en leur donnant une clé différentes'il y en a plusieurs et 
+       ne pas oublier de lces clear lors de la session destroy dans le logout ici */
         localStorage.setItem('access_token', response.data.token)
+        localStorage.setItem('id_locally_stored', response.data.user.id)
         this.name = response.data.user.name
         /* console.log(response.data) */
         this.$toast.success(`Welcome, ${this.name}!`), {
-          timeout: 20000, 
+          timeout: 20000,
           closeable: true,
         }
         this.$router.push('/'); /* link to x page */
