@@ -1,39 +1,27 @@
 <script setup>
-//Get the button
-let mybutton = document.getElementById("btn-back-to-top");
+import { ref, onMounted, onBeforeUnmount } from 'vue';
 
-// When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function () {
-  scrollFunction();
+const showButton = ref(false);
+const handleScroll = () => {
+  showButton.value = window.scrollY > 50;
 };
 
-function scrollFunction() {
-  if (
-    document.body.scrollTop > 20 ||
-    document.documentElement.scrollTop > 20
-  ) {
-    mybutton.style.display = 'block';
-  } else {
-    mybutton.style.display = 'none'; //change to "none" or "block" for tests
-  }
-}
-// When the user clicks on the button, scroll to the top of the document
+const scrollToTop = () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+};
 
-function backToTop() {
-  document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0;
-}
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener('scroll', handleScroll);
+});
 </script>
 
 <template>
-<button
-        @click="backToTop"
-        type="button"
-        class="btn dark btn-floating btn-lg"
-        id="btn-back-to-top"
-        >
-        Back to top
-    <font-awesome-icon icon="fa-solid fa-arrow-up" class="fa-xl" />
-</button>
-
+  <div>
+    <button class=" btn-xl p-3 border dark rounded " id="back-to-top" @click="scrollToTop"><font-awesome-icon class="mr-1" icon="fa-solid fa-arrow-up" />Back
+      to top</button>
+  </div>
 </template>

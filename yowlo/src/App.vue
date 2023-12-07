@@ -1,4 +1,5 @@
 <script setup>
+import CategoriesView from './views/CategoriesView.vue'
 import { RouterLink, RouterView, useRouter } from 'vue-router'
 import axios from 'axios';
 
@@ -23,9 +24,9 @@ const logout = () => {
 
 <template>
   <v-app id="inspire">
-    <v-system-bar color="#F6E1C3" height=100>
-      <v-container>
-        <v-row align-center justify="space-between">
+    <v-system-bar height=100>
+      <v-container class="light">
+        <v-row align-center justify="space-between" max-width="150">
           <v-spacer></v-spacer>
           <v-col>
             <router-link to="/">
@@ -61,13 +62,11 @@ const logout = () => {
         </v-row>
       </v-container>
     </v-system-bar>
-    <v-navigation-drawer width="244" color="#F6E1C3">
-      <!-- <v-sheet color="grey-lighten-5" height="128" width="100%"></v-sheet> -->
 
-      <v-list>
-        <v-list-item v-for="n in 5" :key="n" :title="`Cat ${n}`" link></v-list-item>
-      </v-list>
-    </v-navigation-drawer>
+    <CategoriesView />
+
+    <v-navigation-drawer width="244" color="#F6E1C3">
+
 
     <!-- <v-app-bar class="px-3" color="blue" flat height="72">
       <v-spacer></v-spacer>
