@@ -43,6 +43,8 @@ export default {
        ne pas oublier de lces clear lors de la session destroy dans le logout ici */
         localStorage.setItem('access_token', response.data.token)
         localStorage.setItem('id_locally_stored', response.data.user.id)
+        localStorage.setItem('name_locally_stored', response.data.user.name)
+        localStorage.setItem('account_creation_date_locally_stored', response.data.user.created_at)
         this.name = response.data.user.name
         /* console.log(response.data) */
         this.$toast.success(`Welcome, ${this.name}!`), {
