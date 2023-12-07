@@ -27,7 +27,7 @@ export default {
   data() {
     return {
 
-      /*  name: '', */
+       name: '',
       email: '',
       password: '',
 
@@ -40,7 +40,8 @@ export default {
         const response = await axios.post('http://127.0.0.1:8000/api/login', { email: this.email, password: this.password });
 
         localStorage.setItem('access_token', response.data.token)
-
+        this.name = response.data.user.name
+        /* console.log(response.data) */
         this.$toast.success(`Welcome, ${this.name}!`), {
           timeout: 20000, 
           closeable: true,
