@@ -1,8 +1,25 @@
 <script setup>
-import {ref} from 'vue'
+import {ref, onMounted } from 'vue'
 import PostFeedView from './PostFeedView.vue'
 import BackToTop from '../components/BackToTop.vue';
+import axios from "axios"
+import { useToast } from 'vue-toast-notification';
 
+let posts = ref([]);
+onMounted(async () => {
+  getUserPosts();
+})
+
+function getUserPosts() {
+    axios.get('http://localhost:8000/api/posts/user/{id}')
+        .then(response => {
+            posts.value = response.data
+            console.log('User posts:', posts)
+       })
+        .catch(error => {
+            console.error("Error getting user posts:", error);
+        });
+}
 </script>
 
 <template>
@@ -10,7 +27,6 @@ import BackToTop from '../components/BackToTop.vue';
     <h1>User Profile Page</h1>
 
 <!--a list of user posts-->
-
     <PostFeedView />
 
 
@@ -63,31 +79,4 @@ import BackToTop from '../components/BackToTop.vue';
 </section>
 
 
-<!--     <v-container>
-        <v-row align="center" justify="center">
-            
-
-            <v-card
-            class="mx-auto my-2 p-4"
-            max-width="80%"
-            href="https://github.com/vuetifyjs/vuetify/"
-            title="This is a title"
-            text="This is content"
-            :color="backgroundColor"
-            >
-            <v-btn
-            class="g-1"
-            icon="thumbs-up"
-            :color="darkColor"
-            ></v-btn>
-            <v-btn
-            class="p-1"
-            icon="mdi-thumb-down"
-            :color="darkColor"
-            ></v-btn>
-                <v-btn
-                :color="buttonColor">Add comment</v-btn>
-            </v-card>
-        </v-row>
-    </v-container> -->
 </template>

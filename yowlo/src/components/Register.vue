@@ -1,32 +1,14 @@
 <template>
-    <v-sheet max-width="300" class="mx-auto">
-      <v-form validate-on="submit lazy" @submit.prevent="submit">
-        <v-text-field
-          v-model="userName"
-          :rules="rules"
-          label="Enter Name"
-        ></v-text-field>
-        <v-text-field
-          v-model="email"
-          :rules="rules"
-          label="Enter email address"
-        ></v-text-field>
-        <v-text-field
-          v-model="password"
-          :rules="rules"
-          label="Enter Password"
-        ></v-text-field>
-        
-        <v-btn
-          :loading="loading"
-          type="submit"
-          block
-          class="mt-2"
-          text="Submit"
-        ></v-btn>
-      </v-form>
-    </v-sheet>
-  </template>
+  <v-sheet max-width="300" class="mx-auto">
+    <v-form validate-on="submit lazy" @submit.prevent="submit">
+      <v-text-field v-model="userName" :rules="rules" label="Enter Name"></v-text-field>
+      <v-text-field v-model="email" :rules="rules" label="Enter email address"></v-text-field>
+      <v-text-field v-model="password" :rules="rules" label="Enter Password"></v-text-field>
+
+      <v-btn :loading="loading" type="submit" block class="mt-2" text="Submit"></v-btn>
+    </v-form>
+  </v-sheet>
+</template>
 
 <script>
 export default {
@@ -40,7 +22,7 @@ export default {
   }),
 
   methods: {
-    async submit (event) {
+    async submit(event) {
       this.loading = true
 
       const results = await event
@@ -49,7 +31,7 @@ export default {
 
       alert(JSON.stringify(results, null, 2))
     },
-    async checkApi (userName) {
+    async checkApi(userName) {
       return new Promise(resolve => {
         clearTimeout(this.timeout)
 

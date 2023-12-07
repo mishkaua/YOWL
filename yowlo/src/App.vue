@@ -1,21 +1,22 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
+import CategoriesView from './views/CategoriesView.vue'
 </script>
 
 <template>
   <v-app id="inspire">
-    <v-system-bar color="#F6E1C3" height=100>
-      <v-container>
+    <v-system-bar height=100>
+      <v-container class="light">
         <v-row align-center justify="space-between" max-width="150">
           <v-spacer></v-spacer>
           <v-col cols="auto">
-            <v-text-field bg-color="#E9A178" density="compact" 
-              hide-details rounded="pill" variant="solo-filled" placeholder="Search" style="min-width: 300px;"></v-text-field>
+            <v-text-field bg-color="#E9A178" density="compact" hide-details rounded="pill" variant="solo-filled"
+              placeholder="Search" style="min-width: 300px;"></v-text-field>
           </v-col>
           <v-spacer></v-spacer>
           <router-link to="/login">
             <v-col cols="auto">
-              <v-btn  height="20" min-width="100" color="#E9A178">
+              <v-btn height="20" min-width="100" color="#E9A178">
                 LOGIN
               </v-btn>
             </v-col>
@@ -40,13 +41,13 @@ import { RouterLink, RouterView } from 'vue-router'
         size="28"></v-avatar>
     </v-navigation-drawer> -->
 
-    <v-navigation-drawer width="244">
-      <!-- <v-sheet color="grey-lighten-5" height="128" width="100%"></v-sheet> -->
+    <CategoriesView />
 
-      <v-list>
-        <v-list-item v-for="n in 5" :key="n" :title="`Cat ${n}`" link></v-list-item>
-      </v-list>
-    </v-navigation-drawer>
+
+<!--       <v-list class="light">
+        <v-list-item class="light" v-for="n in 5" :key="n" :title="`Cat ${n}`" link></v-list-item>
+      </v-list> -->
+
 
     <!-- <v-app-bar class="px-3" color="blue" flat height="72">
       <v-spacer></v-spacer>
@@ -67,11 +68,6 @@ import { RouterLink, RouterView } from 'vue-router'
         <v-list-item v-for="n in 5" :key="n" :title="`Item ${n}`" link></v-list-item>
       </v-list>
     </v-navigation-drawer>
-
-    <v-footer app height="72">
-      <!--  <v-text-field justify="right" bg-color="grey-lighten-1" class="overflow-hidden" density="compact" flat hide-details rounded="pill"
-        variant="solo-filled"></v-text-field> -->
-    </v-footer>
   </v-app>
 </template>
 
