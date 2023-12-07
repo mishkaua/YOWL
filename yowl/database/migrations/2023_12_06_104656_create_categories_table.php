@@ -11,12 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('posts', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->text('content');
-            /* See foreign key constraints to add constraints on delete or whatever */
-            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade'); 
+            $table->integer('parent_cat_id')->nullable();
             $table->timestamps();
         });
     }
@@ -26,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('posts');
+        Schema::dropIfExists('categories');
     }
 };

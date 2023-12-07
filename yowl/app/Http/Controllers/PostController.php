@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Models\Post;
+use App\Models\User;
+use Illuminate\Http\Request;
 use App\Http\Resources\PostResource;
 use App\Http\Requests\PostCreateRequest;
 use App\Http\Requests\PostUpdateRequest; 
-use App\Models\Post;
-use Illuminate\Http\Request;
 
 
 class PostController extends Controller
@@ -18,7 +18,8 @@ class PostController extends Controller
 
      //display all posts
     public function showPosts() {
-        $posts = Post::all();
+        $posts = Post::join('users', 'posts.user_id', '=', 'users.id')
+        ->get();
         return response()->json($posts);
     }
 

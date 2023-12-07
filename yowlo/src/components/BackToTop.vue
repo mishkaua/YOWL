@@ -12,9 +12,9 @@ function scrollFunction() {
     document.body.scrollTop > 20 ||
     document.documentElement.scrollTop > 20
   ) {
-    mybutton.style.display = "block";
+    mybutton.style.display = 'block';
   } else {
-    mybutton.style.display = "block"; //change to "none"
+    mybutton.style.display = 'none'; //change to "none" or "block" for tests
   }
 }
 // When the user clicks on the button, scroll to the top of the document
@@ -27,7 +27,6 @@ function backToTop() {
 
 <template>
 <button
-
         @click="backToTop"
         type="button"
         class="btn dark btn-floating btn-lg"

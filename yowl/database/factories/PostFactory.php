@@ -19,7 +19,11 @@ class PostFactory extends Factory
         return [
             'title' => fake()->sentence(),
             'link' => fake()->url(),
-            'content' => fake()->sentence(2),
+
+
+            'categories_id' => fake()->randomDigitNot(0),
+            'content' => fake()->sentence(5),
+
             'user_id' => fake()->randomDigitNot(0),
         ];
     }

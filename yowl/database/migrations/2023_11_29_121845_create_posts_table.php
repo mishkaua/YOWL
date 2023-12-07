@@ -1,9 +1,10 @@
 <?php
 
 use App\Models\User;
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
+use App\Models\Categories;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 return new class extends Migration
 {
@@ -15,6 +16,8 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(User::class)/* ->constrained()->restrictOnDelete() */;
+
+            $table->foreignIdFor(Categories::class);
             $table->string('title');
             $table->string('link');
             $table->longText('content');
