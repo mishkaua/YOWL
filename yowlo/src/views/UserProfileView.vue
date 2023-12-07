@@ -2,7 +2,15 @@
 import {ref} from 'vue'
 import PostFeedView from './PostFeedView.vue'
 import BackToTop from '../components/BackToTop.vue';
+import axios from 'axios';
 
+const user = ref(null);
+axios.get('http://127.0.0.1:8000/api/user')
+.then(response => {
+  user.value = response.data;})
+.catch(error => {
+  console.log('Erreur', error)
+});
 </script>
 
 <template>

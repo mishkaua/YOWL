@@ -6,8 +6,13 @@ import { RouterLink, RouterView } from 'vue-router'
   <v-app id="inspire">
     <v-system-bar color="#F6E1C3" height=100>
       <v-container>
-        <v-row align-center justify="space-between" max-width="150">
+        <v-row align-center justify="space-between" >
           <v-spacer></v-spacer>
+          <v-col>
+            <router-link to="/">
+              <v-img src="/src/assets/yowlito.png" alt="logo" style ="max-height: 50px;"></v-img>
+            </router-link>
+          </v-col>
           <v-col cols="auto">
             <v-text-field bg-color="#E9A178" density="compact" 
               hide-details rounded="pill" variant="solo-filled" placeholder="Search" style="min-width: 300px;"></v-text-field>
@@ -19,6 +24,7 @@ import { RouterLink, RouterView } from 'vue-router'
                 LOGIN
               </v-btn>
             </v-col>
+            <v-spacer></v-spacer>
           </router-link>
           <v-col cols="auto">
             <router-link to="/register">
