@@ -1,6 +1,25 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
 import CategoriesView from './views/CategoriesView.vue'
+import { RouterLink, RouterView, useRouter } from 'vue-router'
+import axios from 'axios';
+
+useRouter();
+/* const response = axios.post('/logout') */
+const router = useRouter();
+const logout = () => {
+  localStorage.removeItem('access_token')
+  localStorage.removeItem('id_locally_stored')
+  localStorage.removeItem('name_locally_stored')
+  localStorage.removeItem('account_creation_date_locally_stored')
+  axios.post('/logout')
+  .then(response => {
+    console.log('ma requête', response)
+    router.push({path:'/'})
+  })
+  .catch (error => {
+    console.log ('response', error)
+  })
+}
 </script>
 
 <template>
@@ -9,6 +28,11 @@ import CategoriesView from './views/CategoriesView.vue'
       <v-container class="light">
         <v-row align-center justify="space-between" max-width="150">
           <v-spacer></v-spacer>
+          <v-col>
+            <router-link to="/">
+              <v-img src="/src/assets/yowlito.png" alt="logo" style="max-height: 50px;"></v-img>
+            </router-link>
+          </v-col>
           <v-col cols="auto">
             <v-text-field bg-color="#E9A178" density="compact" hide-details rounded="pill" variant="solo-filled"
               placeholder="Search" style="min-width: 300px;"></v-text-field>
@@ -20,6 +44,7 @@ import CategoriesView from './views/CategoriesView.vue'
                 LOGIN
               </v-btn>
             </v-col>
+            <v-spacer></v-spacer>
           </router-link>
           <v-col cols="auto">
             <router-link to="/register">
@@ -28,25 +53,19 @@ import CategoriesView from './views/CategoriesView.vue'
               </v-btn>
             </router-link>
           </v-col>
+          <v-col cols="auto">
+            <v-btn @click="logout" height="20" min-width="100" color="#E9A178">
+              LOGOUT
+            </v-btn>
+          </v-col>
+          <v-spacer></v-spacer>
         </v-row>
       </v-container>
     </v-system-bar>
 
-    <!-- <v-navigation-drawer color="grey-lighten-3" rail>
-      <v-avatar class="d-block text-center mx-auto mt-4" color="grey-darken-1" size="36"></v-avatar>
-
-      <v-divider class="mx-3 my-5"></v-divider>
-
-      <v-avatar v-for="n in 6" :key="n" class="d-block text-center mx-auto mb-9" color="grey-lighten-1"
-        size="28"></v-avatar>
-    </v-navigation-drawer> -->
-
     <CategoriesView />
 
-
-<!--       <v-list class="light">
-        <v-list-item class="light" v-for="n in 5" :key="n" :title="`Cat ${n}`" link></v-list-item>
-      </v-list> -->
+    <v-navigation-drawer width="244" color="#F6E1C3">
 
 
     <!-- <v-app-bar class="px-3" color="blue" flat height="72">
@@ -63,7 +82,7 @@ import CategoriesView from './views/CategoriesView.vue'
     </v-main>
 
 
-    <v-navigation-drawer location="right">
+    <v-navigation-drawer location="right" color="#F6E1C3">
       <v-list>
         <v-list-item v-for="n in 5" :key="n" :title="`Item ${n}`" link></v-list-item>
       </v-list>
