@@ -28,7 +28,7 @@ created() {
 </script>
 
 <template>
-  <h1>user: {{ user }} </h1>
+  <h1>user: {{ user.name }} </h1>
 <!--   <WelcomeItem>
     <template #icon>
       <DocumentationIcon />
