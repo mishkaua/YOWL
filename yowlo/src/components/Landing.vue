@@ -14,10 +14,11 @@ onMounted(async () => {
 
 <template>
   <div v-if="user">
-    <h6>Connected as: {{ user.name }} </h6>
-    <p>Since: {{ user.created_at }}</p>
+     <span><h6> {{ user.name }} </h6></span>
+    <span ><h6>online</h6></span>
     <div v-if="isLoggedIn" style="width: 10px; height: 10px; border-radius: 50%; background-color: green;">
-    <h6>online</h6>
+    
+      
   </div>
   </div>
 </template>

@@ -11,8 +11,6 @@ import CategoriesView from './CategoriesView.vue'
   <div class="light">
    <main>
     <BackToTop />
-    <router-link to="/adminusers">Admin User Page</router-link> |
-    <router-link to="/user/:id">User Profile Page</router-link>
     <Landing />
     <PostFeedView />
     <RouterView/>

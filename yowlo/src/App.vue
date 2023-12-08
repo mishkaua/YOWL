@@ -66,6 +66,13 @@ const logout = () => {
               </v-btn>
             </router-link>
           </v-col>
+          <v-col cols="auto">
+            <router-link to="/adminusers">
+              <v-btn height="20" min-width="100" color="#E9A178">
+                Admin Board
+              </v-btn>
+            </router-link>
+          </v-col>
           <v-spacer></v-spacer>
         </v-row>
       </v-container>
