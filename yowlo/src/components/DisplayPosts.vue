@@ -27,8 +27,7 @@ function validContent(commentContent) {
 function addComment(post_id, commentContent) {
      if (validContent()) {
        const comment = { 
-            user_id: 1,
-            //recupérer depuis localStorage.getItem('id_locally_stored')
+            user_id: localStorage.getItem('id_locally_stored'),
             post_id: post_id, 
             content: commentContent,
             created_at: new Date(),

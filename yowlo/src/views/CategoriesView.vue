@@ -2,6 +2,10 @@
 import { ref, onMounted, computed } from 'vue';
 import axios from "axios"
 
+defineProps({
+    categories: Object
+})
+
 let categories = ref([]);
 
 const parentCategories = () => {

@@ -6,6 +6,8 @@ import axios from "axios"
 import { useToast } from 'vue-toast-notification';
 
 let posts = ref([]);
+const username = localStorage.getItem('name_locally_stored');
+const user_since = localStorage.getItem('account_creation_date_locally_stored')
 onMounted(async () => {
   getUserPosts();
 })
@@ -24,14 +26,9 @@ function getUserPosts() {
 
 <template>
     <BackToTop />
-    <h1>User Profile Page</h1>
-
-<!--a list of user posts-->
-    <PostFeedView />
-
-
-<section>
-  <div class="container py-2 h-100 light">
+    <div class="container light">
+    <section id="profilecard">
+    <div class="container py-2 h-100 light">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col col-md-9 col-lg-7 col-xl-5 orange shadow rounded">
         <div class="card" style="border-radius: 15px;">
@@ -45,9 +42,9 @@ function getUserPosts() {
               </div>
               <div class="flex-grow-1 ms-3">
                 <!--username-->
-                <h5 class="mb-1">Danny McLoan</h5>
+                <h5 class="mb-1">{{ username }}</h5>
                 <!--add user creation date-->
-                <p class="mb-2 pb-1">YOWLer since {{  }} </p>
+                <p class="mb-2 pb-1">YOWLer since {{ user_since }} </p>
                 <div class="d-flex justify-content-start rounded-3 p-2 mb-2">
                   <div>
                     <!--add post counter-->
@@ -77,6 +74,6 @@ function getUserPosts() {
     </div>
   </div>
 </section>
-
-
+<PostFeedView />
+</div>
 </template>

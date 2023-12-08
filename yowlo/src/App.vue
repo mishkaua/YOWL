@@ -1,5 +1,5 @@
 <script setup>
-import CategoriesView from './views/CategoriesView.vue'
+//import CategoriesView from './views/CategoriesView.vue'
 import { RouterLink, RouterView, useRouter } from 'vue-router'
 import axios from 'axios';
 
@@ -63,93 +63,8 @@ const logout = () => {
       </v-container>
     </v-system-bar>
 
-    <CategoriesView />
-
-    <v-navigation-drawer width="244" color="#F6E1C3">
-
-
-    <!-- <v-app-bar class="px-3" color="blue" flat height="72">
-      <v-spacer></v-spacer>
-
-      <v-responsive max-width="156">
-        <v-text-field bg-color="#E9A178" density="compact" flat hide-details rounded="pill"
-          variant="solo-filled"></v-text-field>
-      </v-responsive>
-    </v-app-bar> -->
-
     <v-main>
       <RouterView />
     </v-main>
-
-
-    <v-navigation-drawer location="right" color="#F6E1C3">
-      <v-list>
-        <v-list-item v-for="n in 5" :key="n" :title="`Item ${n}`" link></v-list-item>
-      </v-list>
-    </v-navigation-drawer>
   </v-app>
 </template>
-
-<!-- <style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
-}
-</style -->
