@@ -43,6 +43,20 @@ class PostController extends Controller
         return new PostResource($post);
     }
 
+    public function addPost(Request $request) {
+        $post = new Post();
+        $post->user_id = $request->user_id;
+        $post->categories_id = $request->categories_id;
+        $post->title = $request->title;
+        $post->link = $request->link;
+        $post->content = $request->content;
+        $post->created_at = $request->created_at;
+        $post->save();
+        return response()->json([
+            "message" => "Post added."
+        ], 201);
+    }
+
     /**
      * Display the specified resource.
      */

@@ -67,7 +67,7 @@ function getUserPosts() {
             <ul id="profileOptions">
                 <li class="dark rounded my-2">CHANGE AVATAR</li>
                 <li class="dark rounded my-2">CHANGE PASSWORD</li>
-                <li class="dark rounded my-2">CREATE A POST</li>
+                <router-link id="createpostlink" to="/post/create"><li class="dark rounded my-2">CREATE A POST</li></router-link>
                 <li class="dark rounded my-2">MANAGE MY POSTS</li>
             </ul>
       </div>

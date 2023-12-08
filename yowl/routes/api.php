@@ -47,6 +47,7 @@ Route::delete('/users/{id}', [UserController::class, 'deleteUser']);
 
 Route::get('/posts', [PostController::class, 'showPosts']);
 Route::get('/posts/user/{id}', [PostController::class, 'index']);
+Route::post('/post/add', [PostController::class, 'addPost']);
 
 Route::get('/comments', [CommentController::class, 'getComments']);
 Route::post('/comments', [CommentController::class, 'addComment']);
