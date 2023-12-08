@@ -6,6 +6,7 @@ import axios from 'axios';
 useRouter();
 /* const response = axios.post('/logout') */
 const router = useRouter();
+let isLoggedIn = localStorage.getItem('access_token') !== null;
 const logout = () => {
   localStorage.removeItem('access_token')
   localStorage.removeItem('id_locally_stored')
@@ -53,10 +54,17 @@ const logout = () => {
               </v-btn>
             </router-link>
           </v-col>
-          <v-col cols="auto">
+          <v-col cols="auto" v-if="isLoggedIn">
             <v-btn @click="logout" height="20" min-width="100" color="#E9A178">
               LOGOUT
             </v-btn>
+          </v-col>
+          <v-col cols="auto">
+            <router-link to="/user/:userId">
+              <v-btn height="20" min-width="100" color="#E9A178">
+                My Profile
+              </v-btn>
+            </router-link>
           </v-col>
           <v-spacer></v-spacer>
         </v-row>

@@ -35,6 +35,8 @@ export default {
           password_confirmation: this.password_confirmation,
         });
         console.log('register ok');
+        this.$toast.success(`Register successfull ! Please Log In`);
+        this.$router.push({path:'/login'})
       } catch (error) {
         console.log('error not registered', error);
       }
