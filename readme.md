@@ -16,8 +16,8 @@ Melinda Ndongo, Maryna Pichyk
 PHP
 
 # FRAMEWORKS
-Laravel 10
-Vue.Js
+- Laravel 10
+- Vue.Js (v3)
 
 # DATABASE
 MySQL
