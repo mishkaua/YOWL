@@ -35,7 +35,7 @@ app.use(vuetify)
 app.use(ToastPlugin)
 
 .component('font-awesome-icon', FontAwesomeIcon)
-library.add(faThumbsUp, faThumbsDown, faArrowUp)
+library.add(faArrowUp)
 
 
 app.mount('#app')
